@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import {Link} from 'react-router-dom'
 // import { useEffect } from "react";
 const MyCart = (props: any) => {
-    console.log(props);
+    // console.log(props);
     // useEffect(()=>{
 
     // },[])

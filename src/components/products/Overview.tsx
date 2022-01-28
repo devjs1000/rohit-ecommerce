@@ -6,6 +6,7 @@ import { setCart } from "../actions/products";
 const Overview = (props: any) => {
   const allProducts = props.products;
   const [cartCount, setCartCount] = useState(1);
+// console.log(props.cart);
 
   const param = useParams();
   const [overview, setOverview] = useState({
@@ -25,7 +26,7 @@ const Overview = (props: any) => {
         </Link>
       </div>
       <div className="">
-        <img src={overview.imgSrc} alt={overview.name} className="w-60" />
+        <img src={overview.imgSrc} alt={overview.name} className="w-60 mx-auto" />
         <blockquote className="px-4 py-2 text-gray-800">
           {overview.description}
         </blockquote>
@@ -36,50 +37,51 @@ const Overview = (props: any) => {
           <div className="text-lg text-gray-600">{overview.price} </div>
         </div>
         <div className="w-[12rem]">
-          {/* add to cart simple */}
-          <button
-            onClick={() => {
-              props.addCart({
-                ...props.cart,
-                [overview.name]: {
-                  quantity: cartCount,
-                  name: overview.name,
-                  unitPrice: overview.price,
-                  totalPrice: overview.price * cartCount,
-                },
-              });
-            }}
-            className="bg-blue-400 text-white px-2 py-1 h-[2rem]  "
-          >
-            <Cart size={20} />
-          </button>
+            {/* add to cart simple */}
+            <button
+              onClick={() => {
+                props.addCart({
+                  ...props.cart,
+                  [overview.name]: {
+                    quantity: cartCount,
+                    name: overview.name,
+                    unitPrice: overview.price,
+                    totalPrice: overview.price * cartCount,
+                    img: overview.imgSrc,
+                  },
+                });
+              }}
+              className="bg-blue-400 text-white px-2 py-1 h-[2rem]  "
+            >
+              <Cart size={20} />
+            </button>
 
-          <div className="inline-block text-center">
-            <span className="inline-block w-[20px] h-[20px]  mx-1 text-blue-600">
-              {cartCount}
-            </span>
+            <div className="inline-block text-center">
+              <span className="inline-block w-[20px] h-[20px]  mx-1 text-blue-600">
+                {cartCount}
+              </span>
+            </div>
+
+            {/* add to cart minus */}
+            <button
+              onClick={() => {
+                setCartCount(cartCount - 1);
+              }}
+              className="bg-blue-400 text-white px-2 py-1 h-[2rem]  "
+            >
+              <Dash size={20} />
+            </button>
+
+            {/* add to cart plus */}
+            <button
+              onClick={() => {
+                setCartCount(cartCount + 1);
+              }}
+              className="bg-blue-400 text-white px-2 py-1 h-[2rem]  "
+            >
+              <Plus size={20} />
+            </button>
           </div>
-
-          {/* add to cart minus */}
-          <button
-            onClick={() => {
-              setCartCount(cartCount - 1);
-            }}
-            className="bg-blue-400 text-white px-2 py-1 h-[2rem]  "
-          >
-            <Dash size={20} />
-          </button>
-
-          {/* add to cart plus */}
-          <button
-            onClick={() => {
-              setCartCount(cartCount + 1);
-            }}
-            className="bg-blue-400 text-white px-2 py-1 h-[2rem]  "
-          >
-            <Plus size={20} />
-          </button>
-        </div>
       </div>
     </div>
   );

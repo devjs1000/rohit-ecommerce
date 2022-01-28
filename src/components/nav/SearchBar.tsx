@@ -7,7 +7,7 @@ const SearchBar = (props: any) => {
         type="text"
         value={props.search}
         onChange={(e) => props.setSearch(e.target.value)}
-        className="py-1 px-2 rounded shadow-lg"
+        className="py-1 px-2 rounded bg-slate-100"
         placeholder="search the best groceries"
       />
     </div>

@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import Overview from "./Overview";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { Cart, Plus, Dash} from "react-bootstrap-icons";
+import { Cart, Plus, Dash } from "react-bootstrap-icons";
 import { setCart } from "../actions/products";
 const Product = (props: any) => {
   // console.log(props.cart);
-  const [cartCount, setCartCount]=useState(1)
+  const [cartCount, setCartCount] = useState(1);
 
   return (
     <div>
@@ -23,25 +23,32 @@ const Product = (props: any) => {
             {/* add to cart simple */}
             <button
               onClick={() => {
-                
-                props.addCart({...props.cart, [props.name]:{quantity:cartCount, name:props.name, unitPrice: props.price, totalPrice:props.price*cartCount}});
+                props.addCart({
+                  ...props.cart,
+                  [props.name]: {
+                    quantity: cartCount,
+                    name: props.name,
+                    unitPrice: props.price,
+                    totalPrice: props.price * cartCount,
+                    img: props.imgSrc,
+                  },
+                });
               }}
               className="bg-blue-400 text-white px-2 py-1 h-[2rem]  "
             >
               <Cart size={20} />
             </button>
 
-            <div className="inline-block text-center"
-            >
+            <div className="inline-block text-center">
               <span className="inline-block w-[20px] h-[20px]  mx-1 text-blue-600">
-              {cartCount}
+                {cartCount}
               </span>
             </div>
 
             {/* add to cart minus */}
             <button
               onClick={() => {
-               setCartCount(cartCount-1)
+                setCartCount(cartCount - 1);
               }}
               className="bg-blue-400 text-white px-2 py-1 h-[2rem]  "
             >
@@ -51,7 +58,7 @@ const Product = (props: any) => {
             {/* add to cart plus */}
             <button
               onClick={() => {
-                setCartCount(cartCount+1)
+                setCartCount(cartCount + 1);
               }}
               className="bg-blue-400 text-white px-2 py-1 h-[2rem]  "
             >
