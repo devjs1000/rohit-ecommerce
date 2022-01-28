@@ -1,11 +1,13 @@
 import { useState } from "react"
 import { setCart } from "../actions/products"
-
-const MyCart=()=>{
+import { connect } from "react-redux"
+const MyCart=(props:any)=>{
 
     return (
         <div>
-            
+            {
+                props.cart.map(productInCart)
+            }
         </div>
     )
 }
@@ -21,4 +23,4 @@ const mapDispatchToProps=(dispatch:Function)=>{
     }
 }
 
-export default MyCart
+export default connect(mapStateToProps, mapDispatchToProps)(MyCart)
