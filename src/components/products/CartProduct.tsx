@@ -6,9 +6,9 @@ import { setCart } from "../actions/products";
 const CartProduct = (props: any) => {
   return (
     <div>
-      <div className="shadow-lg flex flex-wrap justify-between items-center text-gray-700 px-2 py-2">
+      <div className="shadow-lg px-8 flex flex-wrap justify-between items-center text-gray-700 px-2 py-2">
         <div className="grid">
-          <h1 className="text-2xl text-slate-800 ">{props.name}</h1>
+          <h1 className="text-2xl text-slate-700 ">{props.name}</h1>
 
           <img
             src={props.img}
@@ -34,7 +34,7 @@ const CartProduct = (props: any) => {
             Total Price : {props.totalPrice} rs
           </button>
           <button className="shadow px-2 py-1 bg-green-400 text-white hover:bg-green-500">
-            Unit : 1x{props.quantity} rs
+            Unit : 1x{props.quantity} 
           </button>
         </div>
       </div>
