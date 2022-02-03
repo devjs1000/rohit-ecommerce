@@ -49,6 +49,7 @@ const initialState = {
   ],
   search: "",
   cart: {},
+  account:{}
 };
 
 const reducer = (state: typeof initialState = initialState, action: any) => {
@@ -61,6 +62,9 @@ const reducer = (state: typeof initialState = initialState, action: any) => {
       break;
     case "SET_CART":
       return { ...state, cart: action.cartVal };
+      break;
+    case "SET_ACCOUNT":
+      return { ...state, account: action.accountVal };
       break;
     default:
       return state;

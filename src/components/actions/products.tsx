@@ -24,3 +24,10 @@ export const setCart=(cartVal:any)=>{
     cartVal
   }
 }
+
+export const setAccount=(accountVal:any)=>{
+  return {
+    type:'SET_ACCOUNT',
+    accountVal
+  }
+}

@@ -18,39 +18,49 @@ const MyCart = (props: any) => {
     // console.log(props.cart);
   }, [props.cart]);
 
+  console.log();
+  
   return (
-    <div className="pt-[3rem]">
-      <div className="flex justify-end text-slate-700 font-bold">
-        <Link to="/">
-          <ArrowLeft size={30} />
-        </Link>
-      </div>
-      <div className="mb-10">
-
-      {cartObj.map((productInCart: any) => {
-        return (
-          <div key={productInCart.name}>
-            <CartProduct
-              name={productInCart.name}
-              quantity={productInCart.quantity}
-              unitPrice={productInCart.unitPrice}
-              totalPrice={productInCart.totalPrice}
-              img={productInCart.img}
-            />
-          </div>
-        );
-      })}
+    <>
+    {Boolean(Object.keys(props.cart).length!==0) ?
+        <div className="pt-[3rem]">
+     
+        <div className="flex justify-end text-slate-700 font-bold">
+          <Link to="/">
+            <ArrowLeft size={30} />
+          </Link>
+        </div>
+        <div className="mb-10">
+  
+        {cartObj.map((productInCart: any) => {
+          return (
+            <div key={productInCart.name}>
+              <CartProduct
+                name={productInCart.name}
+                quantity={productInCart.quantity}
+                unitPrice={productInCart.unitPrice}
+                totalPrice={productInCart.totalPrice}
+                img={productInCart.img}
+              />
             </div>
-
-      { cartObj.length>0 &&
-      <Link to={`/checkout`} className="text-white flex items-center justify-center shadow-lg fixed bottom-0 bg-emerald-400 w-full py-1 px-2">
-        checkout your cart
-        <CartCheckFill/>
-      </Link>
-              
-            }
-
-    </div>
+          );
+        })}
+              </div>
+  
+        { cartObj.length>0 &&
+        <Link to={`/checkout`} className="text-white flex items-center justify-center shadow-lg fixed bottom-0 bg-emerald-400 w-full py-1 px-2">
+          checkout your cart
+          <CartCheckFill/>
+        </Link>
+                
+              }
+  
+      </div>
+: <div className="h-[70vh]  flex justify-center items-center ">
+  <Link to='/' className=" bg-green-500 py-2 px-4 rounded-md shadow-lg hover:shadow-xl font-bold text-white text-xl"> your cart is empty go back to shopping</Link>
+</div>  
+  }
+    </>
   );
 };
 

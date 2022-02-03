@@ -51,13 +51,13 @@ const Overview = (props: any) => {
                   },
                 });
               }}
-              className="bg-blue-400 text-white px-2 py-1 h-[2rem]  "
+              className="bg-green-400 text-white px-2 py-1 h-[2rem]  "
             >
               <Cart size={20} />
             </button>
 
             <div className="inline-block text-center">
-              <span className="inline-block w-[20px] h-[20px]  mx-1 text-blue-600">
+              <span className="inline-block w-[20px] h-[20px]  mx-1 text-green-600">
                 {cartCount}
               </span>
             </div>
@@ -67,7 +67,7 @@ const Overview = (props: any) => {
               onClick={() => {
                 setCartCount(cartCount - 1);
               }}
-              className="bg-blue-400 text-white px-2 py-1 h-[2rem]  "
+              className="bg-green-400 text-white px-2 py-1 h-[2rem]  "
             >
               <Dash size={20} />
             </button>
@@ -77,7 +77,7 @@ const Overview = (props: any) => {
               onClick={() => {
                 setCartCount(cartCount + 1);
               }}
-              className="bg-blue-400 text-white px-2 py-1 h-[2rem]  "
+              className="bg-green-400 text-white px-2 py-1 h-[2rem]  "
             >
               <Plus size={20} />
             </button>
